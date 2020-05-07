@@ -10,11 +10,11 @@ public class UserService {
 
     private final UserRepository repo;
 
-//    private final ModelMapper mapper;
+    private final ModelMapper mapper;
 
     @Autowired
-    public UserService(UserRepository repo/*, ModelMapper mapper*/) {
+    public UserService(UserRepository repo, ModelMapper mapper) {
         this.repo = repo;
-//        this.mapper = mapper;
+        this.mapper = mapper;
     }
 }
