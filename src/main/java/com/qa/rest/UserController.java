@@ -1,10 +1,14 @@
 package com.qa.rest;
 
+import com.qa.domain.User;
 import com.qa.dto.UserDTO;
 import com.qa.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -22,6 +26,11 @@ public class UserController {
     @GetMapping("/getAllUsers")
     public ResponseEntity<List<UserDTO>> getAllUsers(){
         return ResponseEntity.ok(this.service.readUsers());
+    }
+
+    @PostMapping("/createUser")
+    public ResponseEntity<UserDTO> createUser(@RequestBody User user) {
+        return new ResponseEntity<UserDTO>(this.service.createUser(user), HttpStatus.CREATED);
     }
 
 }
