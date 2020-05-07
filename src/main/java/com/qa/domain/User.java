@@ -1,7 +1,11 @@
 package com.qa.domain;
 
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import java.util.ArrayList;
+import java.util.List;
 
 public class User
 {
@@ -15,5 +19,8 @@ public class User
     private String surname;
     private String dateOfBirth;
     private String email;
+
+    @OneToMany(mappedBy = "power", fetch = FetchType.LAZY)
+    private List<Stories> stories = new ArrayList<>();
 
 }

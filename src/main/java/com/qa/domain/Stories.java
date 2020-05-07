@@ -3,6 +3,7 @@ package com.qa.domain;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Stories
@@ -14,6 +15,7 @@ public class Stories
     private String genre;
     private String content;
 
-
+    @ManyToOne(targetEntity = User.class)
+    private User user;
 
 }
