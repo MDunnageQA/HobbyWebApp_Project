@@ -2,6 +2,7 @@ package com.qa.service;
 
 import com.qa.domain.User;
 import com.qa.dto.UserDTO;
+import com.qa.exceptions.UserNotFoundException;
 import com.qa.repository.UserRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +34,30 @@ public class UserService {
 
     public UserDTO createUser(User user) {
         return this.mapToDTO((User) this.repo.save(user));
+    }
+
+    public UserDTO findUserById(Long id){
+        return this.mapToDTO(this.repo.findById(id).orElseThrow(UserNotFoundException::new));
+    }
+
+    public UserDTO updateUser(Long id, User user){
+        User update = this.repo.findById(id).orElseThrow(UserNotFoundException::new);
+        update.setUserName(user.getUserName());
+        update.setPassword(user.getPassword());
+        update.setFirstName(user.getFirstName());
+        update.setSurname(user.getSurname());
+        update.setDateOfBirth(user.getDateOfBirth());
+        update.setEmail(user.getEmail());
+        User tempUser = this.repo.save(update);
+        return this.mapToDTO(tempUser);
+    }
+
+    public boolean deleteUser(Long id){
+        if(!this.repo.existsById(id)){
+            throw new UserNotFoundException();
+        }
+        this.repo.deleteById(id);
+        return this.repo.existsById(id);
     }
 
 }
