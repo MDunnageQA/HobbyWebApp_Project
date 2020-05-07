@@ -10,12 +10,12 @@ public class StoriesService {
 
     private final StoriesRepository repo;
 
-    //private final ModelMapper mapper;
+//    private final ModelMapper mapper;
 
     @Autowired
     public StoriesService(StoriesRepository repo/*, ModelMapper mapper*/) {
         this.repo = repo;
-        //this.mapper = mapper;
+//        this.mapper = mapper;
     }
 
 }
