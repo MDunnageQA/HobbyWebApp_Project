@@ -8,6 +8,7 @@ import java.util.Objects;
 
 @Entity
 public class Stories {
+
     @Id
     @GeneratedValue
     private Long id;
