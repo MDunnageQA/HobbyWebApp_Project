@@ -33,7 +33,7 @@ public class UserService {
     }
 
     public UserDTO createUser(User user) {
-        return this.mapToDTO((User) this.repo.save(user));
+        return this.mapToDTO(this.repo.save(user));
     }
 
     public UserDTO findUserById(Long id){
