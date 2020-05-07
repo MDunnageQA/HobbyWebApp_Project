@@ -31,4 +31,9 @@ public class StoriesService {
         return this.repo.findAll().stream().map(this::mapToDTO).collect(Collectors.toList());
     }
 
+    public StoriesDTO createStories(Stories stories) {
+        Stories tempStories = this.repo.save(stories);
+        return this.mapToDTO(tempStories);
+    }
+
 }
