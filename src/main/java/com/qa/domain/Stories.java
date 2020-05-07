@@ -10,12 +10,10 @@ public class Stories
     @Id
     @GeneratedValue
     private Long id;
-    private String username;
-    private String password;
-    private String firstName;
-    private String surname;
-    private String dateOfBirth;
-    private String email;
+    private String title;
+    private String genre;
+    private String content;
+
 
 
 }
