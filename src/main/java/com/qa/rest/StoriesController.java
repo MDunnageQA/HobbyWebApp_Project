@@ -6,10 +6,7 @@ import com.qa.service.StoriesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -31,6 +28,23 @@ public class StoriesController {
     @PostMapping("/createStories")
     public ResponseEntity<StoriesDTO> createStories(@RequestBody Stories stories) {
         return new ResponseEntity<StoriesDTO>(this.service.createStories(stories), HttpStatus.CREATED);
+    }
+
+    @GetMapping("/getStoriesByID/{id}")
+    public ResponseEntity<StoriesDTO> getStoriesByID(@PathVariable Long id){
+        return ResponseEntity.ok(this.service.findStoriesByID(id));
+    }
+
+    @PutMapping("/updateStories/{id}")
+    public ResponseEntity<StoriesDTO> updateMonsters(@PathVariable Long id, @RequestBody Stories stories){
+        return ResponseEntity.ok(this.service.findStoriesByID(id));
+    }
+
+    @DeleteMapping("/deleteStories/{id}")
+    public ResponseEntity<?> deleteNote(@PathVariable Long id){
+        return this.service.deleteStories(id)
+                ? ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build()
+                : ResponseEntity.noContent().build();
     }
 
 }
