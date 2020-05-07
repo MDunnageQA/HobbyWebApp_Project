@@ -7,8 +7,7 @@ import javax.persistence.ManyToOne;
 import java.util.Objects;
 
 @Entity
-public class Stories
-{
+public class Stories {
     @Id
     @GeneratedValue
     private Long id;

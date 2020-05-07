@@ -1,15 +1,12 @@
 package com.qa.domain;
 
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class User
-{
+@Entity
+public class User {
 
     @Id
     @GeneratedValue
