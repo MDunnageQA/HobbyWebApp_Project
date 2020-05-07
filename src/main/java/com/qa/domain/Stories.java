@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import java.util.Objects;
 
 @Entity
 public class Stories
@@ -18,4 +19,60 @@ public class Stories
     @ManyToOne(targetEntity = User.class)
     private User user;
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Stories)) return false;
+        Stories stories = (Stories) o;
+        return Objects.equals(getId(), stories.getId()) &&
+                Objects.equals(getTitle(), stories.getTitle()) &&
+                Objects.equals(getGenre(), stories.getGenre()) &&
+                Objects.equals(getContent(), stories.getContent()) &&
+                Objects.equals(getUser(), stories.getUser());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId(), getTitle(), getGenre(), getContent(), getUser());
+    }
 }
