@@ -14,6 +14,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -62,4 +63,22 @@ public class StoriesServiceUnitTest {
         assertFalse("Service returned no Stories", this.service.readStories().isEmpty());
         verify(repository, times(1)).findAll();
     }
+
+    @Test
+    public void createStoriesTest() {
+        when(repository.save(testStories)).thenReturn(testStoriesWithID);
+        when(this.mapper.map(testStoriesWithID, StoriesDTO.class)).thenReturn(storiesDTO);
+        assertEquals(this.service.createStories(testStories), this.storiesDTO);
+        verify(repository, times(1)).save(this.testStories);
+    }
+
+    @Test
+    public void findStoriesByIDTest() {
+        when(this.repository.findById(id)).thenReturn(java.util.Optional.ofNullable(testStoriesWithID));
+        when(this.mapper.map(testStoriesWithID, StoriesDTO.class)).thenReturn(storiesDTO);
+        assertEquals(this.service.findStoriesByID(this.id), storiesDTO);
+        verify(repository, times(1)).findById(id);
+    }
+
+
 }
