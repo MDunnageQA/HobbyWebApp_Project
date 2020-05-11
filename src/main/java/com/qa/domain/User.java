@@ -21,6 +21,19 @@ public class User {
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     private List<Stories> stories = new ArrayList<>();
 
+    public User() {
+
+    }
+
+    public User(String userName, String password, String firstName, String surname, String dateOfBirth, String email) {
+        this.userName = userName;
+        this.password = password;
+        this.firstName = firstName;
+        this.surname = surname;
+        this.dateOfBirth = dateOfBirth;
+        this.email = email;
+    }
+
     public Long getId() {
         return id;
     }

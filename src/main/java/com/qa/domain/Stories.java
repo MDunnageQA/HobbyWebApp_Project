@@ -19,6 +19,16 @@ public class Stories {
     @ManyToOne(targetEntity = User.class)
     private User user;
 
+    public Stories(){
+
+    }
+
+    public Stories(String title, String genre, String content){
+        this.title = title;
+        this.genre = genre;
+        this.content = content;
+    }
+
     public Long getId() {
         return id;
     }
