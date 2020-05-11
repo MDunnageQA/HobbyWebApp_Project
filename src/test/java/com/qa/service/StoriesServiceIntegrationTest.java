@@ -55,4 +55,14 @@ public class StoriesServiceIntegrationTest {
     public void createStoriesTest() {
         assertEquals(this.mapToDTO(this.testStoriesWithID), this.service.createStories(testStories));
     }
+
+    @Test
+    public void findStoriesByIDTest() {
+        assertThat(this.service.findStoriesByID(this.testStoriesWithID.getId())).isEqualTo(this.mapToDTO(this.testStoriesWithID));
+    }
+
+    @Test
+    public void deleteStoriesTest() {
+        assertThat(this.service.deleteStories(this.testStoriesWithID.getId())).isFalse();
+    }
 }
