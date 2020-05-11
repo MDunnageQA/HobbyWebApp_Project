@@ -15,6 +15,9 @@ public class AppTest
     @Test
     public void shouldAnswerWithTrue()
     {
-        assertTrue( true );
+        App app = new App();
+        String[] args = null;
+        App.main(null);
+        assertTrue( app instanceof App );
     }
 }

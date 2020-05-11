@@ -18,7 +18,7 @@ public class User {
     private String dateOfBirth;
     private String email;
 
-    @OneToMany(mappedBy = "stories", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     private List<Stories> stories = new ArrayList<>();
 
     public Long getId() {

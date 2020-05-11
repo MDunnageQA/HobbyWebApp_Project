@@ -6,5 +6,4 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface StoriesRepository extends JpaRepository<Stories, Long> {
-    Stories findByName(String name);
 }
