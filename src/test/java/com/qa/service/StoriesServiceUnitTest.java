@@ -80,5 +80,18 @@ public class StoriesServiceUnitTest {
         verify(repository, times(1)).findById(id);
     }
 
+    @Test
+    public void deleteStoriesByExistingIDTest() {
+        when(this.repository.existsById(id)).thenReturn(true, false);
+        assertFalse(service.deleteStories(id));
+        verify(repository, times(1)).deleteById(id);
+        verify(repository, times(2)).existsById(id);
+    }
 
+    @Test(expected = StoriesNotFoundException.class)
+    public void deleteStoriesByNonExistingIDTest() {
+        when(this.repository.existsById(id)).thenReturn(false);
+        service.deleteStories(id);
+        verify(repository, times(1)).existsById(id);
+    }
 }
