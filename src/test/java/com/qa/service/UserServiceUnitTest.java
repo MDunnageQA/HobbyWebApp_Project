@@ -86,6 +86,16 @@ public class UserServiceUnitTest {
 
     @Test
     public void deleteUserByExistingID() {
+        when(this.repository.existsById(id)).thenReturn(true, false);
+        assertFalse(service.deleteUser(id));
+        verify(repository, times(1)).deleteById(id);
+        verify(repository, times(2)).existsById(id);
+    }
 
+    @Test(expected = UserNotFoundException.class)
+    public void deleteUserByNonExistingID() {
+        when(this.repository.existsById(id)).thenReturn(false);
+        service.deleteUser(id);
+        verify(repository, times(1)).existsById(id);
     }
 }
