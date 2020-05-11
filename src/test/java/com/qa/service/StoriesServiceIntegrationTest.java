@@ -38,8 +38,21 @@ public class StoriesServiceIntegrationTest {
         return this.mapper.map(stories, StoriesDTO.class);
     }
 
-    @before
-    public void testsSetUp {
-        this.testStories = new Stories()
+    @Before
+    public void testsSetUp() {
+        this.testStories = new Stories("title", "genre", "content");
+        this.repository.deleteAll();
+        this.testStoriesWithID = this.repository.save(this.testStories);
+    }
+
+    @Test
+    public void readStoriesTest() {
+        assertThat(this.service.readStories()).isEqualTo(
+                Stream.of(this.mapToDTO(testStoriesWithID)).collect(Collectors.toList()));
+    }
+
+    @Test
+    public void createStoriesTest() {
+        assertEquals(this.mapToDTO(this.testStoriesWithID), this.service.createStories(testStories));
     }
 }
