@@ -56,4 +56,14 @@ public class UnitServiceIntegrationTest {
     public void createUserTest() {
         assertEquals(this.mapToDTO(this.testUserWithID), this.service.createUser(testUser));
     }
+
+    @Test
+    public void findUserByIDTest() {
+        assertThat(this.service.findUserById(this.testUserWithID.getId())).isEqualTo(this.mapToDTO(this.testUserWithID));
+    }
+
+    @Test
+    public void deleteUserTest() {
+        assertThat(this.service.deleteUser(this.testUserWithID.getId())).isFalse();
+    }
 }
