@@ -31,19 +31,19 @@ public class UserController {
     }
 
     @DeleteMapping("/deleteUser/{id}")
-    public ResponseEntity<?> deleteMonster(@PathVariable Long id){
+    public ResponseEntity<?> deleteUser(@PathVariable Long id){
         return this.service.deleteUser(id)
                 ? ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build()
                 : ResponseEntity.noContent().build();
     }
 
     @GetMapping("/getUserByID/{id}")
-    public ResponseEntity<UserDTO> getNoteById(@PathVariable Long id){
+    public ResponseEntity<UserDTO> getUserById(@PathVariable Long id){
         return ResponseEntity.ok(this.service.findUserById(id));
     }
 
     @PutMapping("/updatePowers/{id}")
-    public ResponseEntity<UserDTO> updateNote(@PathVariable Long id, @RequestBody User user){
+    public ResponseEntity<UserDTO> updateUser(@PathVariable Long id, @RequestBody User user){
         return ResponseEntity.ok(this.service.updateUser(id, user));
     }
 

@@ -36,7 +36,7 @@ public class StoriesController {
     }
 
     @PutMapping("/updateStories/{id}")
-    public ResponseEntity<StoriesDTO> updateMonsters(@PathVariable Long id, @RequestBody Stories stories){
+    public ResponseEntity<StoriesDTO> updateStories(@PathVariable Long id, @RequestBody Stories stories){
         return ResponseEntity.ok(this.service.findStoriesByID(id));
     }
 
