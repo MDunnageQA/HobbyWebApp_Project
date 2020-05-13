@@ -37,7 +37,7 @@ public class UserController {
                 : ResponseEntity.noContent().build();
     }
 
-    @GetMapping("/getUserById/{id}")
+    @GetMapping("/getUserByID/{id}")
     public ResponseEntity<UserDTO> getNoteById(@PathVariable Long id){
         return ResponseEntity.ok(this.service.findUserById(id));
     }

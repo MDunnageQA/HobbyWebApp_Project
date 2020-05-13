@@ -81,4 +81,18 @@ public class UserControllerIntegrationTest {
                 .getContentAsString();
         assertEquals(result, this.objectMapper.writeValueAsString(userDTO));
     }
+
+    @Test
+    public void getUserByID() throws Exception {
+        String jsonContent = this.mock.perform(request(HttpMethod.GET, "/getUserByID/" + this.id)
+        .accept(MediaType.APPLICATION_JSON)).andExpect(status().isOk()).andReturn().getResponse()
+                .getContentAsString();
+        assertEquals(jsonContent, this.objectMapper.writeValueAsString(userDTO));
+    }
+
+    @Test
+    public void deleteUserTest() throws Exception {
+        this.mock.perform(request(HttpMethod.DELETE, "/deleteUser/" + this.id))
+                .andExpect(status().isNoContent());
+    }
 }
