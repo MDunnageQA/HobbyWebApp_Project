@@ -80,4 +80,17 @@ public class StoriesControllerIntegrationTest {
                 .andReturn().getResponse().getContentAsString();
         assertEquals(result, this.objectMapper.writeValueAsString(storiesDTO));
     }
+
+    @Test
+    public void getStoriesByID() throws Exception {
+        String jsonContent = this.mock.perform(request(HttpMethod.GET, "/getStoriesByID/" + this.id)
+        .accept(MediaType.APPLICATION_JSON)).andExpect(status().isOk()).andReturn().getResponse().getContentAsString();
+        assertEquals(jsonContent, this.objectMapper.writeValueAsString(storiesDTO));
+    }
+
+    @Test
+    public void deleteStoriesTest() throws Exception {
+        this.mock.perform(request(HttpMethod.DELETE, "/deleteStories/" + this.id))
+                .andExpect(status().isNoContent());
+    }
 }
