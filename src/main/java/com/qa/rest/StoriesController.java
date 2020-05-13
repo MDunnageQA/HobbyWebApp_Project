@@ -41,7 +41,7 @@ public class StoriesController {
     }
 
     @DeleteMapping("/deleteStories/{id}")
-    public ResponseEntity<?> deleteNote(@PathVariable Long id){
+    public ResponseEntity<?> deleteStories(@PathVariable Long id){
         return this.service.deleteStories(id)
                 ? ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build()
                 : ResponseEntity.noContent().build();

@@ -69,5 +69,26 @@ public class StoriesControllerUnitTest {
                 new ResponseEntity<StoriesDTO>(this.storiesDTO, HttpStatus.CREATED));
         verify(this.service, times(1)).createStories(testStories);
     }
+
+    @Test
+    public void getStoriesByIDTest() {
+        when(this.service.findStoriesByID(id)).thenReturn(this.storiesDTO);
+        assertEquals(this.storiesController.getStoriesByID(id), new ResponseEntity<StoriesDTO>(
+                this.storiesDTO, HttpStatus.OK));
+        verify(service, times(1)).findStoriesByID(id);
+    }
+
+    @Test
+    public void deleteStoriesTestFalse() {
+        this.storiesController.deleteStories(id);
+        verify(service, times(1)).deleteStories(id);
+    }
+
+    @Test
+    public void deleteStoriesTestTrue() {
+        when(service.deleteStories(3L)).thenReturn(true);
+        this.storiesController.deleteStories(3L);
+        verify(service, times(1)).deleteStories(3L);
+    }
 }
 
