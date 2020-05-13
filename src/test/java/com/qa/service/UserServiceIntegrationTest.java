@@ -20,7 +20,7 @@ import static org.junit.Assert.assertEquals;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class UnitServiceIntegrationTest {
+public class UserServiceIntegrationTest {
 
     @Autowired
     private UserService service;
