@@ -1,5 +1,6 @@
 package com.qa.dto;
 
+import javax.persistence.Column;
 import java.util.Objects;
 
 public class StoriesDTO {
@@ -7,6 +8,7 @@ public class StoriesDTO {
     private Long id;
     private String title;
     private String genre;
+    @Column(length = 5000)
     private String content;
 
     public StoriesDTO() {

@@ -2,9 +2,26 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
     <title>Title</title>
 </head>
 <body>
+<legend>Please enter your login details</legend>
+<ol>
+    <li>
+        <label for="username" type="">Username:</label>
+        <input id="username" name="username" type="text" />
+    </li>
+    <li>
+        <label for="password">Password:</sp></label>
+        <input id="password" name="password" type="password" />
+    </li>
+    <button id="userLoginButton">Log In</button>
+    <script src="./getLogin.js"></script>
+
+    <button onclick="window.location.href = 'http://localhost:63342/HobbyWebApp/static/html/UserRegistration.html?_ijt=fv666f35gehigggp51us9i9it3';">Register new User</button>
+</ol>
 
 </body>
 </html>

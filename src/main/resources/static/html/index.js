@@ -1,2 +1,2 @@
-const dbUrl = 'http://localhost:8181'
+"use strict"
 
