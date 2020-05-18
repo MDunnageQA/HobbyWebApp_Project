@@ -32,6 +32,13 @@ public class UserService {
         return this.repo.findAll().stream().map(this::mapToDTO).collect(Collectors.toList());
     }
 
+    public UserDTO getForLogin(String userName) {
+        if (this.repo.findByUserName(userName) === null) {
+            throw new UserNotFoundException();
+        }
+        return this.mapToDTO(this.repo.findByUserName(userName));
+    }
+
     public UserDTO createUser(User user) {
         return this.mapToDTO(this.repo.save(user));
     }
