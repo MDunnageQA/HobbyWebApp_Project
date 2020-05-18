@@ -32,7 +32,7 @@ public class UserService {
         return this.repo.findAll().stream().map(this::mapToDTO).collect(Collectors.toList());
     }
 
-    public UserDTO getForLogin(String userName) {
+    public UserDTO findUserByUserName(String userName) {
         return this.mapToDTO(this.repo.findByUserName(userName).orElseThrow(UserNotFoundException::new));
     }
 

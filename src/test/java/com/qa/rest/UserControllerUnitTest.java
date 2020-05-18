@@ -38,6 +38,8 @@ public class UserControllerUnitTest {
 
     private long id = 1L;
 
+    private String userName = "username";
+
     private UserDTO userDTO;
 
     private final ModelMapper mapper = new ModelMapper();
@@ -80,6 +82,14 @@ public class UserControllerUnitTest {
         assertEquals(this.userController.getUserById(id), new ResponseEntity<UserDTO>(
                 this.userDTO, HttpStatus.OK));
         verify(service, times(1)).findUserById(id);
+    }
+
+    @Test
+    public void getUserByNameTest() {
+        when(this.service.findUserByUserName(userName)).thenReturn(this.userDTO);
+        assertEquals(this.userController.getUserByUserName(userName), new ResponseEntity<UserDTO>(
+                this.userDTO, HttpStatus.OK));
+        verify(service, times(1)).findUserByUserName(userName);
     }
 
     @Test

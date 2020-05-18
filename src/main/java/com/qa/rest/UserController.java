@@ -47,9 +47,9 @@ public class UserController {
         return ResponseEntity.ok(this.service.updateUser(id, user));
     }
 
-    @GetMapping("/findForLogin/{userName}")
-    public ResponseEntity<UserDTO> findForLogin(@PathVariable String userName){
-        return ResponseEntity.ok(this.service.getForLogin(userName));
+    @GetMapping("/getUserByUserName/{userName}")
+    public ResponseEntity<UserDTO> getUserByUserName(@PathVariable String userName){
+        return ResponseEntity.ok(this.service.findUserByUserName(userName));
     }
 
 }

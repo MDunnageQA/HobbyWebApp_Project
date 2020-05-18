@@ -47,6 +47,8 @@ public class UserControllerIntegrationTest {
 
     private long id;
 
+    private String userName;
+
     private UserDTO userDTO;
 
     private UserDTO mapToDTO(User user){
@@ -60,6 +62,7 @@ public class UserControllerIntegrationTest {
                 "surname", "DOB", "email");
         this.testUserWithID = this.repository.save(testUser);
         this.id = testUserWithID.getId();
+        this.userName = testUserWithID.getUserName();
         this.userDTO = this.mapToDTO(testUserWithID);
     }
 
@@ -83,9 +86,17 @@ public class UserControllerIntegrationTest {
     }
 
     @Test
-    public void getUserByID() throws Exception {
+    public void getUserByIDTest() throws Exception {
         String jsonContent = this.mock.perform(request(HttpMethod.GET, "/getUserByID/" + this.id)
         .accept(MediaType.APPLICATION_JSON)).andExpect(status().isOk()).andReturn().getResponse()
+                .getContentAsString();
+        assertEquals(jsonContent, this.objectMapper.writeValueAsString(userDTO));
+    }
+
+    @Test
+    public void getUserByNameTest() throws Exception {
+        String jsonContent = this.mock.perform(request(HttpMethod.GET, "/getUserByUserName/" + this.userName)
+                .accept(MediaType.APPLICATION_JSON)).andExpect(status().isOk()).andReturn().getResponse()
                 .getContentAsString();
         assertEquals(jsonContent, this.objectMapper.writeValueAsString(userDTO));
     }
