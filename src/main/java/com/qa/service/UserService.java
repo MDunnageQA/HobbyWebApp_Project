@@ -33,10 +33,7 @@ public class UserService {
     }
 
     public UserDTO getForLogin(String userName) {
-        if (this.repo.findByUserName(userName) === null) {
-            throw new UserNotFoundException();
-        }
-        return this.mapToDTO(this.repo.findByUserName(userName));
+        return this.mapToDTO(this.repo.findByUserName(userName).orElseThrow(UserNotFoundException::new));
     }
 
     public UserDTO createUser(User user) {
