@@ -63,6 +63,11 @@ public class UserServiceIntegrationTest {
     }
 
     @Test
+    public void findUserByUserNameTest() {
+        assertThat(this.service.findUserByUserName(this.testUserWithID.getUserName())).isEqualTo(this.mapToDTO(this.testUserWithID));
+    }
+
+    @Test
     public void deleteUserTest() {
         assertThat(this.service.deleteUser(this.testUserWithID.getId())).isFalse();
     }

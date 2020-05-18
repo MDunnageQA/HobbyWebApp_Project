@@ -40,6 +40,8 @@ public class UserServiceUnitTest {
 
     private Long id = 1L;
 
+    private String userName = "usename";
+
     private User testUserWithID;
 
     private UserDTO userDTO;
@@ -82,6 +84,14 @@ public class UserServiceUnitTest {
         when(this.mapper.map(testUserWithID, UserDTO.class)).thenReturn(userDTO);
         assertEquals(this.service.findUserById(this.id), userDTO);
         verify(repository, times(1)).findById(id);
+    }
+
+    @Test
+    public void findUserByUserNameTest() {
+        when(this.repository.findByUserName(userName)).thenReturn(java.util.Optional.ofNullable(testUserWithID));
+        when(this.mapper.map(testUserWithID, UserDTO.class)).thenReturn(userDTO);
+        assertEquals(this.service.findUserByUserName(this.userName), userDTO);
+        verify(repository, times(1)).findByUserName(userName);
     }
 
     @Test
