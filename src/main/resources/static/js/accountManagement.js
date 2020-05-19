@@ -1,17 +1,24 @@
 const REQ = new XMLHttpRequest();
-let deleteUser = document.querySelector("#buttDeletUser");
+let deleteUser = document.querySelector("#buttDeleteUser");
 
-function getTest() {
+function deleteThisUser() {
 
-    const idToDelete = document.getElementById(deleteIDBox).nodeValue;
+    console.log(sessionStorage.currentUserID);
     
-    axios.delete('http://localhost:8181/delete/${idToDelete}', {
-        headers: { 
-         'content-Type': 'application/json'
-        },
-        data: {
-        }
-      });
+    axios({
+        method : 'delete',
+        url: `http://localhost:8181/deleteUser/${sessionStorage.currentUserID}`,
+        data: {},
+        headers: 
+        {'content-Type': 'application/json'}
+  })
+  .then(function (response) {
+    console.log(response);
+  })
+  .catch(function (response) {
+    console.log(response);
+  })
+    
 }
 
-deleteUser.addEventListener("click", getTest);
+deleteUser.addEventListener("click", deleteThisUser);
