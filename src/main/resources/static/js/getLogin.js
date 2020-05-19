@@ -15,8 +15,6 @@ function getTest() {
       let currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
       sessionStorage.setItem('currentUserID', currentUser.id);
       let currentUserID = sessionStorage.getItem('currentUserID');
-      console.log(currentUserID);
-      console.log(currentUser.id);
       window.alert(`login successful`);
     } else {
       console.log(`something went wrong`);

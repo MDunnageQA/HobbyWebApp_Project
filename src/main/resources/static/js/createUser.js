@@ -20,6 +20,7 @@ const postUser = () => {
   })
   .then(function (response) {
     console.log(response);
+    window.alert("User created");
   })
   .catch(function (response) {
     console.log(response);
