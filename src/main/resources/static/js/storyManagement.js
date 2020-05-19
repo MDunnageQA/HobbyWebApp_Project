@@ -1,5 +1,5 @@
 
-let deleteUser = document.querySelector("#buttDeleteStory");
+let deleteStory = document.querySelector("#buttDeleteStory");
 
 function deleteSelectedStory() {
 
@@ -7,14 +7,14 @@ function deleteSelectedStory() {
     
     axios({
         method : 'delete',
-        url: `http://localhost:8181/deleteUser/${sessionStorage.selectedStoryID}`,
+        url: `http://localhost:8181/deleteStories/${sessionStorage.selectedStoryID}`,
         data: {},
         headers: 
         {'content-Type': 'application/json'}
   })
   .then(function (response) {
     console.log(response);
-    window.alert("User successfully deleted");
+    window.alert("story successfully deleted");
   })
   .catch(function (response) {
     console.log(response);
@@ -22,4 +22,4 @@ function deleteSelectedStory() {
     
 }
 
-deleteUser.addEventListener("click", deleteSelectedStory);
+deleteStory.addEventListener("click", deleteSelectedStory);
