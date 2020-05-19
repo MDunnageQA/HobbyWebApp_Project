@@ -9,7 +9,6 @@ function getStories() {
       console.log(responseObject);
       let storiesString = JSON.stringify(responseObject);
       document.body.innerHTML = storiesString;
-      document.write("<h1>" + response.data + "</h1>");
     } else {
       console.log(`something went wrong`);
       window.alert(`Oh no! Something went wrong :(`);
