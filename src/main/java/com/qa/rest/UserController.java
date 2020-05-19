@@ -42,9 +42,14 @@ public class UserController {
         return ResponseEntity.ok(this.service.findUserById(id));
     }
 
-    @PutMapping("/updatePowers/{id}")
+    @PutMapping("/updateUser/{id}")
     public ResponseEntity<UserDTO> updateUser(@PathVariable Long id, @RequestBody User user){
         return ResponseEntity.ok(this.service.updateUser(id, user));
+    }
+
+    @GetMapping("/getUserByUserName/{userName}")
+    public ResponseEntity<UserDTO> getUserByUserName(@PathVariable String userName){
+        return ResponseEntity.ok(this.service.findUserByUserName(userName));
     }
 
 }

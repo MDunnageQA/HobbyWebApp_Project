@@ -1,9 +1,6 @@
 package com.qa.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
@@ -14,6 +11,7 @@ public class Stories {
     private Long id;
     private String title;
     private String genre;
+    @Column(length = 5000)
     private String content;
 
     @ManyToOne(targetEntity = User.class)
