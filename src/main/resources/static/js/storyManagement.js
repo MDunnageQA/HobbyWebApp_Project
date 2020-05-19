@@ -1,13 +1,13 @@
 
-let deleteUser = document.querySelector("#buttDeleteUser");
+let deleteUser = document.querySelector("#buttDeleteStory");
 
-function deleteThisUser() {
+function deleteSelectedStory() {
 
-    console.log(sessionStorage.currentUserID);
+    console.log(sessionStorage.selectedStoryID);
     
     axios({
         method : 'delete',
-        url: `http://localhost:8181/deleteUser/${sessionStorage.currentUserID}`,
+        url: `http://localhost:8181/deleteUser/${sessionStorage.selectedStoryID}`,
         data: {},
         headers: 
         {'content-Type': 'application/json'}
@@ -22,4 +22,4 @@ function deleteThisUser() {
     
 }
 
-deleteUser.addEventListener("click", deleteThisUser);
+deleteUser.addEventListener("click", deleteSelectedStory);

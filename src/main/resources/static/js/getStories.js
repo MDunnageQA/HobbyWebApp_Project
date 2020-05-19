@@ -7,7 +7,7 @@ function getStories() {
       console.dir(REQ);
       let responseObject = REQ.response;
       console.log(responseObject);
-      document.write("<p>" + responseObject + "</p>");
+      document.write("<h1>" + response.data + "</h1>");
     } else {
       console.log(`something went wrong`);
       window.alert(`Oh no! Something went wrong :(`);

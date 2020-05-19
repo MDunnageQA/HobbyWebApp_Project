@@ -1,7 +1,7 @@
 const REQ = new XMLHttpRequest();
 let userLoginButton = document.querySelector("#userLoginButton");
 
-function getTest() {
+function getUser() {
 
     const userName = document.getElementById("username").value;
     const password = document.getElementById("password").value;
@@ -31,4 +31,4 @@ function getTest() {
 
 }
 
-userLoginButton.addEventListener("click", getTest);
+userLoginButton.addEventListener("click", getUser);
