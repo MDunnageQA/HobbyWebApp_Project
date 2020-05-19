@@ -14,6 +14,7 @@ function deleteThisUser() {
   })
   .then(function (response) {
     console.log(response);
+    window.alert("User successfully deleted");
   })
   .catch(function (response) {
     console.log(response);
