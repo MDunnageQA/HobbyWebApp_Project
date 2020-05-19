@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin
 public class StoriesController {
 
     private final StoriesService service;
@@ -37,7 +38,7 @@ public class StoriesController {
 
     @PutMapping("/updateStories/{id}")
     public ResponseEntity<StoriesDTO> updateStories(@PathVariable Long id, @RequestBody Stories stories){
-        return ResponseEntity.ok(this.service.findStoriesByID(id));
+        return ResponseEntity.ok(this.service.updateStories(id, stories));
     }
 
     @DeleteMapping("/deleteStories/{id}")

@@ -1,5 +1,5 @@
 const REQ = new XMLHttpRequest();
-let createUserButton = document.querySelector("#buttGetStories");
+let showStoriesButton = document.querySelector("#buttGetStories");
 
 function getStories() {
   REQ.onload = () => {
@@ -7,6 +7,8 @@ function getStories() {
       console.dir(REQ);
       let responseObject = REQ.response;
       console.log(responseObject);
+      let storiesString = JSON.stringify(responseObject);
+      document.body.innerHTML = storiesString;
     } else {
       console.log(`something went wrong`);
       window.alert(`Oh no! Something went wrong :(`);
