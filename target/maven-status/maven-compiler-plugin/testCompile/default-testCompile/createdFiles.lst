@@ -1,9 +1,0 @@
-com\qa\AppTest.class
-com\qa\rest\UserControllerUnitTest.class
-com\qa\rest\UserControllerIntegrationTest.class
-com\qa\service\UserServiceIntegrationTest.class
-com\qa\service\UserServiceUnitTest.class
-com\qa\service\StoriesServiceIntegrationTest.class
-com\qa\rest\StoriesControllerUnitTest.class
-com\qa\rest\StoriesControllerIntegrationTest.class
-com\qa\service\StoriesServiceUnitTest.class

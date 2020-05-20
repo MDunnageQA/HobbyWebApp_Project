@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.qa.rest.StoriesControllerIntegrationTest
--------------------------------------------------------------------------------
-Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 23.811 s - in com.qa.rest.StoriesControllerIntegrationTest
