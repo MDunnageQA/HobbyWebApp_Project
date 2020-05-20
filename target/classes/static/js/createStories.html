@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Registration Page</title>
+</head>
+<body>
+<legend>Register new user</legend>
+<ol>
+    <div>
+    <li>
+        <label for="titleTBox" type="">Story Title:</label>
+        <input id="titleTBox" name="titleTBox" type="text" />
+    </li>
+</div>
+<div>
+    <li>
+        <label for="genreTBox" type="">Genre:</label>
+        <input id="genreTBox" name="genreTBox" type="text" />
+    </li>
+</div>
+
+<h2>story content</h2>
+<p>type the story content here:</p>
+
+<form action="/action_page.php">
+  <textarea id="contentTBox" name="message" rows="40" cols="150"></textarea>
+  <br><br>
+
+
+<div>
+    <button id="buttCreateStories" type="button">Create this Story</button>
+    <script src="createStories.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</div>
+
+</ol>
+
+</body>
+</html>
